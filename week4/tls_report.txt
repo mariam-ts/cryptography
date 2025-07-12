@@ -1,0 +1,17 @@
+TLS Report
+
+1. TLS Handshake Explanation:
+   - Client Hello: proposes supported ciphers.
+   - Server Hello: selects cipher and sends certificate.
+   - Key exchange occurs and session keys are derived.
+   - Secure encrypted communication begins.
+
+2. MITM Protection:
+   - TLS uses certificate authority chains to verify server identity.
+   - The handshake fails if the certificate is invalid.
+   - Public Key Infrastructure ensures authenticity.
+
+3. HTTPS Communication:
+   - TLS encrypts data during transit.
+   - Prevents eavesdropping and tampering.
+   - Commonly used on login pages, banking, and email.

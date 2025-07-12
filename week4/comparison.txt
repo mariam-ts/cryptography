@@ -1,0 +1,6 @@
+RSA vs AES
+
+1. RSA is asymmetric (public/private keys); AES is symmetric (shared secret key).
+2. RSA is slower and used mostly for key exchange and signing.
+3. AES is faster and efficient for large data encryption.
+4. Typical use-case: RSA encrypts AES keys; AES encrypts files.
