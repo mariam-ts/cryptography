@@ -1,0 +1,9 @@
+How does padding_oracle determine if padding is valid?
+It attempts to decrypt the ciphertext and unpad it using PKCS#7. If an exception is raised during unpadding (due to incorrect padding), it returns False; otherwise, it returns True.
+
+What is the purpose of the IV in CBC mode?
+The IV (Initialization Vector) ensures that the same plaintext encrypted multiple times results in different ciphertexts. It introduces randomness in the first block’s encryption.
+
+Why must the ciphertext be a multiple of the block size?
+AES operates on fixed-size blocks (16 bytes). CBC mode chains the blocks, so the ciphertext must be aligned to this block size for decryption to work correctly.
+
