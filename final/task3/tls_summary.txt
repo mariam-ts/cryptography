@@ -1,0 +1,43 @@
+TLS Communication Inspection Summary
+==================================
+
+Target: google.com
+Command Used:
+    openssl s_client -connect google.com:443
+
+Certificate Chain
+------------------
+Level      | Subject                          | Issuer
+-----------|----------------------------------|----------------------------------------------
+Leaf       | CN=google.com                    | Gateway CA - Cloudflare Managed G1
+Intermediate | Gateway CA - Cloudflare Managed G1 | Self-signed
+
+Verification Error:
+    Verify return code: 19 (self-signed certificate in certificate chain)
+
+Cipher Suite
+-------------
+TLS Version: TLS 1.3
+Cipher: TLS_AES_256_GCM_SHA384
+Key Exchange: ECDH (Elliptic Curve Diffie-Hellman)
+Authentication: ECDSA
+Symmetric Encryption: AES-256 in GCM mode
+MAC/Hash: SHA384
+
+Wireshark Handshake Highlights
+-------------------------------
+(These should be captured in screenshots in Wireshark using filter: tls.handshake)
+1. Client Hello – shows supported TLS versions and cipher suites
+2. Server Certificate – contains the full certificate chain
+3. Key Exchange – key agreement info (part of TLS 1.3 handshake)
+
+TLS Security Mechanisms
+-------------------------
+- Confidentiality: Achieved via symmetric AES-256 encryption (GCM mode)
+- Integrity: Guaranteed by AEAD and MAC (SHA384)
+- Authentication: Ensured via certificate chain validation
+- Forward Secrecy: Enabled by ephemeral ECDH (TLS 1.3)
+
+Summary:
+---------
+TLS provides end-to-end encryption, authenticity, and integrity using a combination of public-key cryptography (for key exchange and certificates) and symmetric encryption (for actual data transmission).
